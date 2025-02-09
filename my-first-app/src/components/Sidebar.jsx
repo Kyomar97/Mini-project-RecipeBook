@@ -1,19 +1,11 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 const Sidebar = () => (
-  <aside className="w-60 bg-gray-800 text-white p-4">
+  <aside className="sidebar">
     <ul>
-      <li className="mb-2">
-        <Link to="/" className="hover:underline">
-          Home
-        </Link>
-      </li>
-      <li>
-        <Link to="/about" className="hover:underline">
-          About
-        </Link>
-      </li>
+      <li className="mb-2">Inicio</li>
+      <li className="mb-2">Recetas</li>
+      <li className="mb-2">Contacto</li>
     </ul>
   </aside>
 );

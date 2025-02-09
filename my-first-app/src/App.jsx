@@ -1,27 +1,29 @@
-import { useState } from "react";
-import "./App.css";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { Home, About } from "./pages";
+import React from "react";
+import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Sidebar from "./components/Sidebar";
 import Footer from "./components/Footer";
+import List from "./components/List";
+import ItemDetails from "./components/ItemDetails";
+import NotFound from "./components/NotFound";
 
-function App() {
+const App = () => {
   return (
     <div className="flex flex-col h-screen">
       <Navbar />
       <div className="flex flex-1">
         <Sidebar />
-        <main className="flex-1 p-6 bg-gray-100">
+        <main className="flex-1 p-4">
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
+            <Route path="/" element={<List />} />
+            <Route path="/item/:id" element={<ItemDetails />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
       </div>
       <Footer />
     </div>
   );
-}
+};
 
 export default App;
