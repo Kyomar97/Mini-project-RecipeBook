@@ -1,16 +1,16 @@
 import React from "react";
 
-const Footer = () => (
-  <footer className="bg-gray-700 text-white text-center p-4">
-    <a
-      href="https://github.com/your-repo"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="underline"
-    >
-      GitHub Repository
-    </a>
-  </footer>
-);
+const Footer = () => {
+  return (
+    <footer className="bg-gray-800 text-white p-4 text-center">
+      <p>
+        My App |{" "}
+        <a href="https://github.com" className="text-blue-400">
+          GitHub
+        </a>
+      </p>
+    </footer>
+  );
+};
 
 export default Footer;

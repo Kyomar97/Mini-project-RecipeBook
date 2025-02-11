@@ -1,28 +1,30 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
-import Navbar from "./components/Navbar";
-import Sidebar from "./components/Sidebar";
-import Footer from "./components/Footer";
-import List from "./components/List";
-import ItemDetails from "./components/ItemDetails";
-import NotFound from "./components/NotFound";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { Navbar, Footer, Sidebar } from "./components";
+import Dashboard from "./pages/Dashboard";
+import ItemDetails from "./pages/ItemDetails";
+import About from "./pages/About";
+import NotFound from "./pages/NotFound";
 
 const App = () => {
   return (
-    <div className="flex flex-col h-screen">
-      <Navbar />
-      <div className="flex flex-1">
-        <Sidebar />
-        <main className="flex-1 p-4">
-          <Routes>
-            <Route path="/" element={<List />} />
-            <Route path="/item/:id" element={<ItemDetails />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </main>
+    <Router>
+      <div className="flex flex-col min-h-screen">
+        <Navbar />
+        <div className="flex flex-1">
+          <Sidebar />
+          <main className="flex-1 p-4">
+            <Routes>
+              <Route path="/" element={<Dashboard />} />
+              <Route path="/item/:id" element={<ItemDetails />} />
+              <Route path="/about" element={<About />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </main>
+        </div>
+        <Footer />
       </div>
-      <Footer />
-    </div>
+    </Router>
   );
 };
 

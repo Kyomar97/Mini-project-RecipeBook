@@ -1,26 +1,27 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
-const ListItem = ({ recipe, onDelete }) => {
+const ListItem = ({ item, onDelete }) => {
   return (
-    <div className="border p-4 rounded-lg shadow-md">
-      <h3 className="text-lg font-bold">{recipe.name}</h3>
-      <img
-        src={recipe.image}
-        alt={recipe.name}
-        className="w-full h-40 object-cover rounded-lg"
-      />
-      <p>Calorías: {recipe.calories}</p>
-      <p>Porciones: {recipe.servings}</p>
-      <div className="mt-2">
-        <Link to={`/item/${recipe.id}`} className="text-blue-500 mr-4">
-          Ver Detalles
-        </Link>
-        <button onClick={() => onDelete(recipe.id)} className="text-red-500">
-          Eliminar
-        </button>
+    <li className="flex items-center justify-between border-b p-2">
+      <div className="flex items-center">
+        <img src={item.image} alt={item.name} className="w-12 h-12 mr-4" />
+        <div>
+          <h3 className="font-bold">{item.name}</h3>
+          <p>Calories: {item.calories}</p>
+          {item.calories > 300 ? (
+            <span>🔥 High Calorie</span>
+          ) : (
+            <span>✅ Healthy</span>
+          )}
+        </div>
       </div>
-    </div>
+      <button
+        onClick={() => onDelete(item.id)}
+        className="bg-red-500 text-white px-2 py-1 rounded"
+      >
+        Delete
+      </button>
+    </li>
   );
 };
 
