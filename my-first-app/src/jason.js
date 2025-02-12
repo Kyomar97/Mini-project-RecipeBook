@@ -1,4 +1,4 @@
-[
+export const food = [
   {
     id: "9e7f0d61-aa6b-418a-b56a-6418d19e6e1d",
     name: "Pizza",
