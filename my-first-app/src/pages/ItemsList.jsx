@@ -30,7 +30,9 @@ function ItemsList() {
   const [items, setItems] = useState(food);
 
   const handleDelete = (id) => {
-    setItems(items.filter((item) => item.id !== id));
+    if (window.confirm("Are you sure you want to delete this item?")) {
+      setItems(items.filter((item) => item.id !== id));
+    }
   };
 
   return (
@@ -39,9 +41,13 @@ function ItemsList() {
         Recipe List
       </h2>
       <ul className="bg-gray-100 p-4 rounded-lg shadow-lg">
-        {items.map((item) => (
-          <ListItem key={item.id} item={item} onDelete={handleDelete} />
-        ))}
+        {items.length === 0 ? (
+          <p className="text-center text-gray-600">No items found.</p>
+        ) : (
+          items.map((item) => (
+            <ListItem key={item.id} item={item} onDelete={handleDelete} />
+          ))
+        )}
       </ul>
     </div>
   );

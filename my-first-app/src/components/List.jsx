@@ -1,13 +1,12 @@
-import React from "react";
 import ListItem from "./ListItem";
 
 function List({ items, onDelete }) {
   return (
-    <ul className="bg-white shadow-md rounded p-4">
+    <div className="bg-gray-100 p-8 rounded-lg shadow-lg grid grid-cols-3 gap-6">
       {items.map((item) => (
         <ListItem key={item.id} item={item} onDelete={onDelete} />
       ))}
-    </ul>
+    </div>
   );
 }
 

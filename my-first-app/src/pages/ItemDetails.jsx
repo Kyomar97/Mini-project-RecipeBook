@@ -20,7 +20,7 @@ function ItemDetails() {
       <img
         src={item.image}
         alt={item.name}
-        className="w-full h-64 object-cover rounded-lg mt-4"
+        className="w-full h-64 object-cover rounded-lg mt-4 hover:scale-105 transition-transform"
       />
       <div className="mt-4 text-lg text-gray-700">
         <p>
@@ -30,12 +30,24 @@ function ItemDetails() {
           <strong>Servings:</strong> {item.servings}
         </p>
       </div>
-      <div className="flex justify-center mt-4">
+      <div className="flex justify-center mt-4 space-x-4">
         <button
           onClick={() => navigate(-1)}
           className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700"
         >
           Back
+        </button>
+        <button
+          onClick={() => navigate(`/edit/${item.id}`)}
+          className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-700"
+        >
+          Edit
+        </button>
+        <button
+          onClick={() => handleDelete(item.id)}
+          className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-700"
+        >
+          Delete
         </button>
       </div>
     </div>
