@@ -1,32 +1,37 @@
-import React from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import React, { useState } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
 import Sidebar from "./components/Sidebar";
-import Dashboard from "./pages/Dashboard";
-import ItemDetails from "./pages/ItemsDetails";
+import Footer from "./components/Footer";
+import ItemsList from "./pages/ItemsList";
+import ItemDetails from "./pages/ItemDetails";
+import CreateItem from "./pages/CreateItem";
+import UpdateItem from "./pages/UpdateItem";
 import About from "./pages/About";
 import NotFound from "./pages/NotFound";
-import ListItem from "./components/ListItem";
 
-const App = () => {
+function App() {
   return (
-    <div className="flex flex-col min-h-screen">
-      <Navbar />
-      <div className="flex flex-1">
-        <Sidebar />
-        <main className="flex-1 p-4">
-          <Routes>
-            <Route path="/" element={<Dashboard />} />
-            <Route path="/item/:id" element={<ListItem />} />
-            <Route path="/about" element={<About />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </main>
+    <Router>
+      <div className="flex flex-col h-screen">
+        <Navbar />
+        <div className="flex flex-1">
+          <Sidebar />
+          <div className="flex-1 p-4">
+            <Routes>
+              <Route path="/" element={<ItemsList />} />
+              <Route path="/item/:id" element={<ItemDetails />} />
+              <Route path="/create" element={<CreateItem />} />
+              <Route path="/update/:id" element={<UpdateItem />} />
+              <Route path="/about" element={<About />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </div>
+        </div>
+        <Footer />
       </div>
-      <Footer />
-    </div>
+    </Router>
   );
-};
+}
 
 export default App;

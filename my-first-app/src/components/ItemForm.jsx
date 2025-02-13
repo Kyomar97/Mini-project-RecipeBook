@@ -1,52 +1,44 @@
 import React, { useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 
 const ItemForm = ({ onAddItem, existingItem, onUpdateItem }) => {
   const [item, setItem] = useState(
-    existingItem || { name: "", calories: "", image: "" }
+    existingItem || { id: "", name: "", calories: 0, image: "" }
   );
-
-  const handleChange = (e) => {
-    setItem({ ...item, [e.target.name]: e.target.value });
-  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (existingItem) {
       onUpdateItem(item);
     } else {
-      onAddItem({ ...item, id: Date.now().toString() });
+      onAddItem({ ...item, id: uuidv4() });
     }
   };
 
   return (
-    <form onSubmit={handleSubmit} className="mb-4 p-4 border rounded">
+    <form onSubmit={handleSubmit} className="mb-4">
       <input
-        name="name"
-        value={item.name}
-        onChange={handleChange}
+        type="text"
         placeholder="Name"
-        className="p-2 border rounded"
+        value={item.name}
+        onChange={(e) => setItem({ ...item, name: e.target.value })}
+        required
       />
       <input
-        name="calories"
-        value={item.calories}
-        onChange={handleChange}
+        type="number"
         placeholder="Calories"
-        className="p-2 border rounded"
+        value={item.calories}
+        onChange={(e) => setItem({ ...item, calories: +e.target.value })}
+        required
       />
       <input
-        name="image"
-        value={item.image}
-        onChange={handleChange}
+        type="text"
         placeholder="Image URL"
-        className="p-2 border rounded"
+        value={item.image}
+        onChange={(e) => setItem({ ...item, image: e.target.value })}
+        required
       />
-      <button
-        type="submit"
-        className="bg-blue-500 text-white px-4 py-2 rounded mt-2"
-      >
-        {existingItem ? "Update" : "Add"} Item
-      </button>
+      <button type="submit">{existingItem ? "Update" : "Add"} Recipe</button>
     </form>
   );
 };
