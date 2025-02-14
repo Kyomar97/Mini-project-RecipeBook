@@ -14,7 +14,7 @@ function ListItem({ item, onDelete }) {
           alt={item.name}
           className="w-12 h-12 rounded-full mr-4"
         />
-        {item.name} - {item.calories} calories
+        {item.name}
       </Link>
       <button
         onClick={() => onDelete(item.id)}

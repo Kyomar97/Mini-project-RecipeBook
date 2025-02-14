@@ -3,27 +3,32 @@ import { Link } from "react-router-dom";
 
 function ListItem({ item, onDelete }) {
   return (
-    <li className="p-4 border-b flex justify-between items-center bg-white shadow-md rounded-lg my-2 hover:shadow-lg transition-shadow">
+    <li className="p-4 border-b flex justify-between items-center bg-white shadow-md rounded-lg my-2">
       <Link
         to={`/item/${item.id}`}
-        className="flex items-center space-x-4 w-full hover:bg-gray-50 p-3 rounded-lg transition-colors"
+        className="text-blue-600 font-semibold hover:underline flex items-center"
       >
         <img
           src={item.image}
           alt={item.name}
-          className="w-16 h-16 rounded-full object-cover border-2 border-gray-200"
+          className="w-12 h-12 rounded-full mr-4"
         />
-        <div className="flex-1">
-          <h3 className="text-xl font-semibold text-gray-800">{item.name}</h3>
-          <p className="text-sm text-gray-500">Click for details</p>
-        </div>
+        {item.name}
       </Link>
-      <button
-        onClick={() => onDelete(item.id)}
-        className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition-colors"
-      >
-        Delete
-      </button>
+      <div className="flex space-x-2">
+        <Link
+          to={`/edit/${item.id}`}
+          className="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-700"
+        >
+          Edit
+        </Link>
+        <button
+          onClick={() => onDelete(item.id)}
+          className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-700"
+        >
+          Delete
+        </button>
+      </div>
     </li>
   );
 }

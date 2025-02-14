@@ -6,10 +6,10 @@ function About() {
     <div className="p-6 bg-white shadow-lg rounded-lg max-w-2xl mx-auto mt-10 text-center">
       <h2 className="text-3xl font-bold mb-4">About This Project</h2>
       <p className="text-lg text-gray-700">
-        Este proyecto se ha realizado como una práctica con React, con el
-        objetivo de aprender conceptos básicos del mismo así como interiorizar
-        su uso. El objetivo es desarrollar mi primera aplicación de una sola
-        página (SPA). Puedes conocer más sobre mí en:
+        Este proyecto se ha realizado como práctica del bootcamp, utilizando
+        React. Esta tarea tiene como objetivo aprender conceptos básicos del
+        mismo, así como interiorizar su uso. La meta es desarrollar mi primera
+        aplicación de una sola página (SPA). Puedes conocer más sobre mí en:
       </p>
 
       <div className="mt-6 flex justify-center space-x-4">

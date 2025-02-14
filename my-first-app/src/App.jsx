@@ -23,6 +23,7 @@ function App() {
               <Route path="/item/:id" element={<ItemDetails />} />
               <Route path="/create" element={<CreateItem />} />
               <Route path="/update/:id" element={<UpdateItem />} />
+              <Route path="/edit/:id" element={<UpdateItem />} />
               <Route path="/about" element={<About />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
